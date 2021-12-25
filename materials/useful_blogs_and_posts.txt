@@ -1,0 +1,27 @@
+TimeSeries Analysis:
+https://www.quantstart.com/articles/Beginners-Guide-to-Time-Series-Analysis/
+https://www.quantstart.com/articles/Serial-Correlation-in-Time-Series-Analysis/
+
+AR Model:
+https://en.wikipedia.org/wiki/Autoregressive_model
+MA Model:
+https://en.wikipedia.org/wiki/Moving-average_model
+ARMA Model:
+https://en.wikipedia.org/wiki/Autoregressive%E2%80%93moving-average_model
+ARIMA Model:
+https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/
+ARCH Model:
+https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity
+
+Quant Strategy: Pairs Trading Algorithm (Mean Reversion):
+https://youtu.be/f73ItMWO4z8
+Advanced Pairs Trading: Sparse Mean Reversion Portfolio Selection:
+https://youtu.be/IP7R-gnDF9w
+
+
+
+https://www.quantstart.com/articles/Heston-Stochastic-Volatility-Model-with-Euler-Discretisation-in-C/
+https://www.quantstart.com/articles/Geometric-Brownian-Motion/
+
+
+
