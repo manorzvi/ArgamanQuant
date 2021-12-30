@@ -1,3 +1,3 @@
 # Database info:
-# argaman.quant@gmail.com
-# pigvex-puqvyv-1mUcza
+argaman.quant@gmail.com
+pigvex-puqvyv-1mUcza
