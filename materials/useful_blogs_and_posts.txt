@@ -23,5 +23,13 @@ https://youtu.be/IP7R-gnDF9w
 https://www.quantstart.com/articles/Heston-Stochastic-Volatility-Model-with-Euler-Discretisation-in-C/
 https://www.quantstart.com/articles/Geometric-Brownian-Motion/
 
+Pretrained models:
+https://machinelearningmastery.com/time-series-forecasting-long-short-term-memory-network-python/
+https://stackoverflow.com/questions/46713734/are-there-some-pre-trained-lstm-rnn-or-ann-models-for-time-series-prediction
+https://github.com/maxim5/time-series-machine-learning
+https://github.com/jaungiers/LSTM-Neural-Network-for-Time-Series-Prediction
+https://github.com/gcarq/keras-timeseries-prediction
+https://github.com/BenjiKCF/Neural-Net-with-Financial-Time-Series-Data
+
 
 
