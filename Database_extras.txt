@@ -1,0 +1,10 @@
+Python config file optimization:
+https://pgtune.leopard.in.ua
+
+For data collection - Native Postgres on Mac has 5x faster write times
+For data analysis - Docker Postgres on Mac has 2x faster read times
+
+https://itnext.io/benchmark-postgresql-docker-versus-native-2dde6b5a8552
+
+Running data cleaning Python scripts:
+How to addd Python script to Crontab
