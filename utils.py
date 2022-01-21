@@ -2,9 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader as pdr
-from typing import Tuple, List, Union
-from pprint import pprint
-import plotly.express as px
+from typing import List, Union
 
 
 def read_yahoo(tickers: List[str], starts: List[int], ends: List[Union[None, int]]):
