@@ -11,8 +11,8 @@ def read_yahoo(tickers: List[str], starts: List[int], ends: List[Union[None, int
 
     for i, (ticker, start, end) in enumerate(zip(tickers, starts, ends)):
         _df = pdr.data.DataReader(ticker, data_source='yahoo', start=start, end=end)
-        if _df.index[0].to_numpy() != np.datetime64(start):
-            print(f'[Warning] requested start data ({np.datetime64(start)}) for {ticker} != provided start data ({_df.index[0].to_numpy()})')
+        if np.datetime64(_df.index[0]) != np.datetime64(start):
+            logger.warning(f'requested start data ({np.datetime64(start)}) for {ticker} != provided start data ({np.datetime64(_df.index[0])})')
         _df['Ticker'] = ticker
         _df['Date'] = _df.index
         if i == 0:
