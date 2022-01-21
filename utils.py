@@ -1,8 +1,10 @@
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader as pdr
 from typing import List, Union
+from loguru import logger
 
 
 def read_yahoo(tickers: List[str], starts: List[int], ends: List[Union[None, int]]):
@@ -19,6 +21,28 @@ def read_yahoo(tickers: List[str], starts: List[int], ends: List[Union[None, int
             df = pd.concat((df, _df), ignore_index=True)
     
     return df
+
+
+def read_av_intraday(tickers: List[str], starts: List[int], ends: List[Union[None, int]], api_key: str = None):
+    if api_key is None:
+        api_key = os.getenv('ALPHAVANTAGE_API_KEY')
+    for i, (ticker, start, end) in enumerate(zip(tickers, starts, ends)):
+        try:
+            _df = pdr.data.DataReader(ticker, data_source='av-intraday', start=start, end=end, api_key=api_key)
+        except ValueError as ve:
+            err_msg = str(ve) + ' | ' + f'api_key={api_key}'
+            logger.error(err_msg)
+            exit(1)
+        if np.datetime64(_df.index[0]) != np.datetime64(start):
+            logger.warning(f'requested start data ({np.datetime64(start)}) for {ticker} != provided start data ({np.datetime64(_df.index[0])})')
+        _df['Ticker'] = ticker
+        _df['Time'] = _df.index.to_series().apply(lambda x: np.datetime64(x))
+        if i == 0:
+            df = _df
+        else:
+            df = pd.concat((df, _df), ignore_index=True)
+    
+    return df    
 
 def calc_pct_change_per_col(df: pd.DataFrame, skip_cols: List[str] = ['Ticker', 'Date']):
     cols = df.columns.tolist()
@@ -74,10 +98,15 @@ def calc_histogram_per_col(
 
 if __name__ == '__main__':
     starts=['2000-01-01']*2
+    starts=['2021-01-01']
     ends=[None]*2
-    tickers = ('GOOG', 'AAPL')
-    df = read_yahoo(tickers, starts, ends)
-    df = calc_pct_change_per_col(df)
+    ends=[None]
+    tickers = ['GOOG', 'AAPL']
+    tickers = ['GOOG']
+
+    # df = read_yahoo(tickers, starts, ends)
+    df = read_av_intraday(tickers, starts, ends)
+    # df = calc_pct_change_per_col(df)
     print(df)
-    ticker_hist_dict = calc_histogram_per_col(df)
+    # ticker_hist_dict = calc_histogram_per_col(df)
     exit(0)
